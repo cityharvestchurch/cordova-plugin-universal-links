@@ -5,7 +5,7 @@ var path = require('path');
 var xmlHelper = require('./xmlHelper.js');
 var ANDROID = 'android';
 var IOS = 'ios';
-var CONFIG_FILE_NAME = 'config.xml';
+var CONFIG_FILE_NAME = 'universal-links.xml';
 var context;
 var projectRoot;
 
