@@ -29,7 +29,7 @@ function ConfigXmlHelper(cordovaContext) {
  * @return {Object} JSON object with data from config.xml
  */
 ConfigXmlHelper.prototype.read = function() {
-  var filePath = getConfigXmlFilePath();
+  var filePath = getConfigXmlFilePath();console.log('File Path: ' + filePath);
 
   return xmlHelper.readXmlAsJson(filePath);
 //   return xmlHelper.readXmlStringAsJson(`<universal-links>
@@ -106,7 +106,7 @@ function getCordovaConfigParser(configFilePath) {
  * Get absolute path to the config.xml.
  */
 function getConfigXmlFilePath() {
-  return path.join(projectRoot, CONFIG_FILE_NAME);
+  return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
 }
 
 /**
