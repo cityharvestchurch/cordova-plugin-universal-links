@@ -33,7 +33,9 @@ function readPreferences(cordovaContext) {
     return null;
   }
 
-  var xmlPreferences = ulXmlPreferences[0];
+  //var xmlPreferences = ulXmlPreferences[0];
+  var xmlPreferences = ulXmlPreferences;
+  console.log(xmlPreferences);
 
   // read hosts
   var hosts = constructHostsList(xmlPreferences);
