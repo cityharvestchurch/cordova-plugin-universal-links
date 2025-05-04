@@ -31,7 +31,12 @@ function ConfigXmlHelper(cordovaContext) {
 ConfigXmlHelper.prototype.read = function() {
   var filePath = getConfigXmlFilePath();
 
-  return xmlHelper.readXmlAsJson(filePath);
+  //return xmlHelper.readXmlAsJson(filePath);
+  return xmlHelper.readXmlStringAsJson(`<universal-links>
+    <host name="cityharvestchurch-dev.outsystemsenterprise.com">
+		<path url="/TheCHCApp/*" />
+    </host>
+</universal-links>`);
 }
 
 /**
