@@ -7,7 +7,8 @@ var xml2js = require('xml2js');
 
 module.exports = {
   readXmlAsJson: readXmlAsJson,
-  writeJsonAsXml: writeJsonAsXml
+  writeJsonAsXml: writeJsonAsXml,
+  readXmlStringAsJson: readXmlStringAsJson
 };
 
 /**
@@ -25,6 +26,22 @@ function readXmlAsJson(filePath) {
     xmlData = fs.readFileSync(filePath, 'utf8');
     xmlParser = new xml2js.Parser();
     xmlParser.parseString(xmlData, function(err, data) {
+      if (data) {
+        parsedData = data;
+      }
+    });
+  } catch (err) {}
+
+  return parsedData;
+}
+
+function readXmlStringAsJson(xmlString){
+  var xmlParser;
+  var parsedData;
+
+  try {
+    xmlParser = new xml2js.Parser();
+    xmlParser.parseString(xmlString, function(err, data) {
       if (data) {
         parsedData = data;
       }
