@@ -20,13 +20,14 @@ module.exports = {
 function readPreferences(cordovaContext) {
   // read data from projects root config.xml file
   var configXml = new ConfigXmlHelper(cordovaContext).read();
+  console.log(configXml);
   if (configXml == null) {
     console.warn('config.xml not found! Please, check that it exist\'s in your project\'s root directory.');
     return null;
   }
 
   // look for data from the <universal-links> tag
-  var ulXmlPreferences = configXml.widget['universal-links'];
+  var ulXmlPreferences = configXml['universal-links'];
   if (ulXmlPreferences == null || ulXmlPreferences.length == 0) {
     console.warn('<universal-links> tag is not set in the config.xml. Universal Links plugin is not going to work.');
     return null;
