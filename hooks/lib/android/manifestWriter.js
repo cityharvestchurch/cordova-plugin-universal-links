@@ -197,7 +197,7 @@ function injectOptions(manifestData, pluginPreferences) {
     });
 
     // add Universal Links intent-filters to the launch activity
-    launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
+    launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);console.log(JSON.toString(changedManifest));
 
     return changedManifest;
 }
