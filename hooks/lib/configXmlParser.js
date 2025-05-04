@@ -27,7 +27,7 @@ function readPreferences(cordovaContext) {
   }
 
   // look for data from the <universal-links> tag
-  var ulXmlPreferences = configXml['universal-links'];
+  var ulXmlPreferences = configXml.widget['universal-links'];
   if (ulXmlPreferences == null || ulXmlPreferences.length == 0) {
     console.warn('<universal-links> tag is not set in the config.xml. Universal Links plugin is not going to work.');
     return null;
