@@ -60,7 +60,7 @@ function readXmlStringAsJson(xmlString){
  */
 function writeJsonAsXml(jsData, filePath, options) {
   var xmlBuilder = new xml2js.Builder(options);
-  var changedXmlData = xmlBuilder.buildObject(jsData);
+  var changedXmlData = xmlBuilder.buildObject(jsData);console.log(changedXmlData);
   var isSaved = true;
 
   try {
