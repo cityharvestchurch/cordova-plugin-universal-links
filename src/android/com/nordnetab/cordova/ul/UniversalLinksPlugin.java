@@ -84,8 +84,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
      * @param arguments       arguments, passed from JS side
      * @param callbackContext callback to use when event is captured
      */
-    private void subscribeForEvent(final CordovaArgs arguments, final CallbackContext callbackContext) {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", arguments);
-        final String eventName = getEventNameFromArguments(arguments);
+    private void subscribeForEvent(final CordovaArgs arguments, final CallbackContext callbackContext) {
+        final String eventName = getEventNameFromArguments(arguments);Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", eventName);
         if (TextUtils.isEmpty(eventName)) {
             return;
         }
@@ -171,14 +171,14 @@ public class UniversalLinksPlugin extends CordovaPlugin {
      *
      * @param intent launch intent
      */
-    private void handleIntent(Intent intent) {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", intent);
+    private void handleIntent(Intent intent) {
         if (intent == null || supportedHosts == null || supportedHosts.size() == 0) {
             return;
         }
 
         // read intent
-        String action = intent.getAction();
-        Uri launchUri = intent.getData();
+        String action = intent.getAction();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", action);
+        Uri launchUri = intent.getData();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", launchUri);
 
         // if app was not launched by the url - ignore
         if (!Intent.ACTION_VIEW.equals(action) || launchUri == null) {
