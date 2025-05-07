@@ -75,7 +75,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
     }
 
     @Override
-    public void onResume() {
+    public void onResume(boolean multitasking) {
         Intent intent = getIntent();
         handleIntent(intent);
     }
