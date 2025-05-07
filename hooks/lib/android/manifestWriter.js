@@ -197,7 +197,7 @@ function injectOptions(manifestData, pluginPreferences) {
     });
 
     // add Universal Links intent-filters to the launch activity
-    launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
+    //launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
 
     var newActivity = {
      "$":{
@@ -208,8 +208,8 @@ function injectOptions(manifestData, pluginPreferences) {
     };
 
     newActivity['intent-filter'] = launchActivity['intent-filter'];
-    // changedManifest['manifest']['application'][0]['activity'].push(newActivity)
-    changedManifest['manifest']['application'][0]['activity'] = newActivity
+    changedManifest['manifest']['application'][0]['activity'].push(newActivity)
+    // changedManifest['manifest']['application'][0]['activity'] = newActivity
 
     return changedManifest;
 }
