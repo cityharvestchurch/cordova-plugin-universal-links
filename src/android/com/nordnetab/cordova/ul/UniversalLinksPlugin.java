@@ -76,7 +76,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
     @Override
     public void onResume() {
-        Intent intent = getIntent()
+        Intent intent = getIntent();
         handleIntent(intent);
     }
 
