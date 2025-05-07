@@ -201,7 +201,7 @@ function injectOptions(manifestData, pluginPreferences) {
 
     var newActivity = {
      "$":{
-      "android:name": "UniversalLink"
+      "android:name": "UniversalLink",
       "android:label": "@string/activity_name"
      }
     };
