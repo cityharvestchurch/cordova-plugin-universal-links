@@ -74,6 +74,11 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         handleIntent(intent);
     }
 
+    @Override
+    public void onCreate(Intent intent) {
+        handleIntent(intent);
+    }
+
     // endregion
 
     // region JavaScript methods
