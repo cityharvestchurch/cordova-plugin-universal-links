@@ -9,6 +9,6 @@ public class UniversalLinksActivity extends CordovaActivity{
 
 private void handleIntent(intent){
   // read intent
-  String action = intent.getAction();console.log("Activity action: " + action);
+  String action = intent.getAction();Log.d("Activity action: " + action);
   Uri launchUri = intent.getData();
 }
