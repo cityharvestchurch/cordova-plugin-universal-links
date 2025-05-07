@@ -74,12 +74,6 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         handleIntent(intent);
     }
 
-    @Override
-    public void onResume(boolean multitasking) {
-        Intent intent = getIntent();
-        handleIntent(intent);
-    }
-
     // endregion
 
     // region JavaScript methods
