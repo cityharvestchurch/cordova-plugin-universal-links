@@ -203,7 +203,7 @@ function injectOptions(manifestData, pluginPreferences) {
      "$":{
       "android:name": "com.nordnetab.cordova.ul.UniversalLink",
       "android:label": "@string/activity_name",
-      "android:exported": true
+      "android:exported": false
      }
     };
 
