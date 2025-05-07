@@ -176,7 +176,7 @@ function isDataTagForUniversalLinks(data) {
  */
 function injectOptions(manifestData, pluginPreferences) {
     var changedManifest = manifestData;
-    var activitiesList = changedManifest['manifest']['application'][0]['activity'];
+    var activitiesList = changedManifest['manifest']['application'][0]['activity'];console.log(JSON.stringify(activitiesList));
     var launchActivityIndex = getMainLaunchActivityIndex(activitiesList);
     var ulIntentFilters = [];
     var launchActivity;
