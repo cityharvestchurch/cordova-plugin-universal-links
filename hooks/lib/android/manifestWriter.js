@@ -31,7 +31,7 @@ function writePreferences(cordovaContext, pluginPreferences) {
     cleanManifest = removeOldOptions(manifestSource);
 
     // inject intent-filters based on plugin preferences
-    updatedManifest = injectOptions(cleanManifest, pluginPreferences);console.log(JSON.stringify(updatedManifest));
+    updatedManifest = injectOptions(cleanManifest, pluginPreferences);
 
     // save new version of the AndroidManifest
     xmlHelper.writeJsonAsXml(updatedManifest, pathToManifest);
@@ -198,6 +198,15 @@ function injectOptions(manifestData, pluginPreferences) {
 
     // add Universal Links intent-filters to the launch activity
     launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
+
+    var newActivity = {
+     "$":{
+      "android:name": "UniversalLink"
+      "android:label": "@string/activity_name"
+     }
+    };
+
+var newActivity['intent-filter'] = launchActivity['intent-filter'];
 
     return changedManifest;
 }
