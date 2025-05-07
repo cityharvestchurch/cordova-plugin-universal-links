@@ -56,7 +56,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
     }
 
     @Override
-    public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", action);
+    public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Execute Action: " + action);
         boolean isHandled = true;
         if (JSAction.SUBSCRIBE.equals(action)) {
             subscribeForEvent(args, callbackContext);
@@ -85,7 +85,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
      * @param callbackContext callback to use when event is captured
      */
     private void subscribeForEvent(final CordovaArgs arguments, final CallbackContext callbackContext) {
-        final String eventName = getEventNameFromArguments(arguments);Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", eventName);
+        final String eventName = getEventNameFromArguments(arguments);Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "SubscribeForEvent: " + eventName);
         if (TextUtils.isEmpty(eventName)) {
             return;
         }
