@@ -62,6 +62,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             subscribeForEvent(args, callbackContext);
         } else if (JSAction.UNSUBSCRIBE.equals(action)) {
             unsubscribeFromEvent(args);
+        } else if(action == "getCordovaIntent"){
+            getCordovaIntent(callbackContext);
         } else {
             isHandled = false;
         }
@@ -215,6 +217,31 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         }
 
         return host;
+    }
+
+    /**
+     * Send a JSON representation of the cordova intent back to the caller
+     *
+     * @param data
+     * @param context
+     */
+    public boolean getCordovaIntent (final CallbackContext context) {
+        // if(data.length() != 0) {
+        //     context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+        //     return false;
+        // }
+
+        String action = intent.getAction();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Handle Intent Action: " + action);
+        Uri launchUri = intent.getData();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", launchUri.toString());
+
+        Intent intent = cordova.getActivity().getIntent();
+        JSONObject intentJSON = new JSONObject();
+        intentJSON.put("action", action);
+        intentJSON.put("uri", launchUri.toString());
+
+        context.sendPluginResult(new PluginResult(PluginResult.Status.OK, intentJSON));
+        //handleIntent(intent);
+        return true;
     }
 
     // endregion
