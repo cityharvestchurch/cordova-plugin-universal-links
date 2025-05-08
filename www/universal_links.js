@@ -53,13 +53,7 @@ var universalLinks = {
   },
 
   getCordovaIntent: function(){
-    return cordova.exec (
-        successCallback,
-        failureCallback,
-        PLUGIN_NAME,
-        "getCordovaIntent",
-        []
-    );
+    return cordova.exec(null, null, PLUGIN_NAME, "getCordovaIntent", []);
   }
 };
 
