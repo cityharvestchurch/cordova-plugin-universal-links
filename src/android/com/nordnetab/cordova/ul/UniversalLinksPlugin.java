@@ -67,7 +67,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             subscribeForEvent(args, callbackContext);
         } else if (JSAction.UNSUBSCRIBE.equals(action)) {
             unsubscribeFromEvent(args);
-        } else if(action == "getCordovaIntent"){Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Execute getCordovaIntent");
+        } else if(action.equals("getCordovaIntent")){Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Execute getCordovaIntent");
             getCordovaIntent(callbackContext);
         } else {
             isHandled = false;
