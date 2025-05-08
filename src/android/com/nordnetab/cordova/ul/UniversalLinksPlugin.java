@@ -235,6 +235,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         //     return false;
         // }
 
+        Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Inside getCordovaIntent");
+
         Intent intent = cordova.getActivity().getIntent();
 
         String action = intent.getAction();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Handle Intent Action: " + action);
