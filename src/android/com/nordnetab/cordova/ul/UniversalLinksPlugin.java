@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import java.util.Arrays;
 
 import com.nordnetab.cordova.ul.js.JSAction;
 import com.nordnetab.cordova.ul.model.JSMessage;
