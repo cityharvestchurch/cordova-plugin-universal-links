@@ -208,7 +208,7 @@ function injectOptions(manifestData, pluginPreferences) {
     };
 
     newActivity['intent-filter'] = launchActivity['intent-filter'][1];
-    launchActivity['intent-filter'].splice(0, 1);
+    launchActivity['intent-filter'].splice(1, 1);
     changedManifest['manifest']['application'][0]['activity'].push(newActivity)
     // changedManifest['manifest']['application'][0]['activity'] = newActivity
 
