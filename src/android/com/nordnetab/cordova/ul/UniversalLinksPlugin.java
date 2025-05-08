@@ -242,8 +242,9 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
         String action = intent.getAction();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Handle Intent Action: " + action);
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Before uri");
+        Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Action View: " + Intent.ACTION_VIEW);
 
-        if (!Intent.ACTION_VIEW.equals(action)) {
+        if (!Intent.ACTION_VIEW.equals(action)) {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Not action view");
             return;
         }
 
