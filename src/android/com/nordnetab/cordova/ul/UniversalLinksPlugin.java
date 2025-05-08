@@ -230,7 +230,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
      * @param data
      * @param context
      */
-    public boolean getCordovaIntent (final CallbackContext context) {
+    public void getCordovaIntent (final CallbackContext context) {
         // if(data.length() != 0) {
         //     context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
         //     return false;
@@ -244,9 +244,9 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Before uri");
 
         if (!Intent.ACTION_VIEW.equals(action)) {
-            return;
+            return false;
         }
-        
+
         Uri launchUri = intent.getData();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", launchUri.getPath());
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "After uri");
 
@@ -266,8 +266,6 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         }
 
         context.sendPluginResult(new PluginResult(PluginResult.Status.OK, intentJSON));
-        //handleIntent(intent);
-        return true;
     }
 
     // endregion
