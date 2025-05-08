@@ -252,7 +252,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             Log.d(pluginName, e.getMessage());
             Log.d(pluginName, Arrays.toString(e.getStackTrace()));
 
-            return null;
+            return false;
         }
 
         context.sendPluginResult(new PluginResult(PluginResult.Status.OK, intentJSON));
