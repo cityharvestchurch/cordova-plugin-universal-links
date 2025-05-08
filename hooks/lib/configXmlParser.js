@@ -20,7 +20,7 @@ module.exports = {
 function readPreferences(cordovaContext) {
   // read data from projects root config.xml file
   var configXml = new ConfigXmlHelper(cordovaContext).read();
-  console.log(configXml);
+  
   if (configXml == null) {
     console.warn('config.xml not found! Please, check that it exist\'s in your project\'s root directory.');
     return null;

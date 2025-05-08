@@ -29,7 +29,7 @@ function ConfigXmlHelper(cordovaContext) {
  * @return {Object} JSON object with data from config.xml
  */
 ConfigXmlHelper.prototype.read = function() {
-  var filePath = getConfigXmlFilePath();console.log('File Path: ' + filePath);
+  var filePath = getConfigXmlFilePath();
 
   return xmlHelper.readXmlAsJson(filePath);
 //   return xmlHelper.readXmlStringAsJson(`<universal-links>

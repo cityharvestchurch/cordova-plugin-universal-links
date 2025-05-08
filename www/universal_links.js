@@ -22,7 +22,7 @@ var universalLinks = {
    * @param {String} eventName - name of the event you are subscribing on; if null - default plugin event is used
    * @param {Function} callback - callback that is called when event is captured
    */
-  subscribe: function(eventName, callback) {console.log('eventName: ' + eventName);console.log('callback: ' + callback);
+  subscribe: function(eventName, callback) {
     if (!callback) {
       console.warn('Universal Links: can\'t subscribe to event without a callback');
       return;
