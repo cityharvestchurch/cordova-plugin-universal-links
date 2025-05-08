@@ -61,12 +61,13 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Execute Action: " + action);
+        Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Execute Action: " + (action == "getCordovaIntent"));
         boolean isHandled = true;
         if (JSAction.SUBSCRIBE.equals(action)) {
             subscribeForEvent(args, callbackContext);
         } else if (JSAction.UNSUBSCRIBE.equals(action)) {
             unsubscribeFromEvent(args);
-        } else if(action == "getCordovaIntent"){
+        } else if(action == "getCordovaIntent"){Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Execute getCordovaIntent");
             getCordovaIntent(callbackContext);
         } else {
             isHandled = false;
