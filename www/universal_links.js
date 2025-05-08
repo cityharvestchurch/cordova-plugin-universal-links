@@ -52,8 +52,12 @@ var universalLinks = {
     exec(null, null, PLUGIN_NAME, pluginNativeMethod.UNSUBSCRIBE, [eventName]);
   },
 
-  getCordovaIntent: function(){
-    return cordova.exec(null, null, PLUGIN_NAME, "getCordovaIntent", []);
+  getCordovaIntent: function(callback){
+    var innerCallback = function(intent){
+        callback(intent);
+    }
+
+    return cordova.exec(innerCallback, null, PLUGIN_NAME, "getCordovaIntent", []);
   }
 };
 
