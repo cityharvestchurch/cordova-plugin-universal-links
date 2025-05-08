@@ -41,6 +41,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
     // stored message, that is captured on application launch
     private JSMessage storedMessage;
 
+     private final String pluginName = "UniversalLinksPlugin";
+
     // region Public API
 
     @Override
@@ -238,8 +240,19 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         Uri launchUri = intent.getData();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", launchUri.toString());
 
         JSONObject intentJSON = new JSONObject();
-        intentJSON.put("action", action);
-        intentJSON.put("uri", launchUri.toString());
+
+        try{
+            intentJSON.put("action", action);
+            intentJSON.put("uri", launchUri.toString());
+        }
+
+        catch(JSONException e) {
+            Log.d(pluginName, pluginName + " Error thrown during intent > JSON conversion");
+            Log.d(pluginName, e.getMessage());
+            Log.d(pluginName, Arrays.toString(e.getStackTrace()));
+
+            return null;
+        }
 
         context.sendPluginResult(new PluginResult(PluginResult.Status.OK, intentJSON));
         //handleIntent(intent);
