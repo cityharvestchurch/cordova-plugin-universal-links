@@ -244,7 +244,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Before uri");
 
         if (!Intent.ACTION_VIEW.equals(action)) {
-            return false;
+            return;
         }
 
         Uri launchUri = intent.getData();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", launchUri.getPath());
@@ -262,7 +262,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             Log.d(pluginName, e.getMessage());
             Log.d(pluginName, Arrays.toString(e.getStackTrace()));
 
-            return false;
+            return;
         }
 
         context.sendPluginResult(new PluginResult(PluginResult.Status.OK, intentJSON));
