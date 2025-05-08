@@ -197,19 +197,19 @@ function injectOptions(manifestData, pluginPreferences) {
     });
 
     // add Universal Links intent-filters to the launch activity
-    //launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
+    launchActivity['intent-filter'] = launchActivity['intent-filter'].concat(ulIntentFilters);
 
-    var newActivity = {
-     "$":{
-      "android:name": "com.nordnetab.cordova.ul.UniversalLink",
-      "android:label": "@string/activity_name",
-      "android:exported": false
-     }
-    };
+    // var newActivity = {
+    //  "$":{
+    //   "android:name": "com.nordnetab.cordova.ul.UniversalLink",
+    //   "android:label": "@string/activity_name",
+    //   "android:exported": false
+    //  }
+    // };
 
-    newActivity['intent-filter'] = launchActivity['intent-filter'][1];
-    launchActivity['intent-filter'].splice(1, 1);
-    changedManifest['manifest']['application'][0]['activity'].push(newActivity)
+    // newActivity['intent-filter'] = launchActivity['intent-filter'][1];
+    // launchActivity['intent-filter'].splice(1, 1);
+    // changedManifest['manifest']['application'][0]['activity'].push(newActivity)
     // changedManifest['manifest']['application'][0]['activity'] = newActivity
 
     return changedManifest;
