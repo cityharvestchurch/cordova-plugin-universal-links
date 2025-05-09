@@ -31,7 +31,7 @@ function writePreferences(cordovaContext, pluginPreferences) {
     cleanManifest = removeOldOptions(manifestSource);
 
     // inject intent-filters based on plugin preferences
-    updatedManifest = injectOptions(cleanManifest, pluginPreferences);console.log(changedManifest);
+    updatedManifest = injectOptions(cleanManifest, pluginPreferences);console.log(updatedManifest);
 
     // save new version of the AndroidManifest
     xmlHelper.writeJsonAsXml(updatedManifest, pathToManifest);
