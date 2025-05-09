@@ -244,7 +244,8 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Before uri");
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Action View: " + Intent.ACTION_VIEW);
 
-        if (!Intent.ACTION_VIEW.equals(action)) {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Not action view");
+        if (!Intent.ACTION_VIEW.equals(action)) {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "is action view");
+            context.sendPluginResult(new PluginResult(PluginResult.Status.OK));
             return;
         }
 
@@ -263,6 +264,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
             Log.d(pluginName, e.getMessage());
             Log.d(pluginName, Arrays.toString(e.getStackTrace()));
 
+            context.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION, e.getMessage()));
             return;
         }
 
