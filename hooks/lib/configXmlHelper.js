@@ -101,8 +101,8 @@ function getCordovaConfigParser(configFilePath) {
  * Get absolute path to the config.xml.
  */
 function getConfigXmlFilePath() {
-  //return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
-  return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
+  return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
+  //return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
 }
 
 /**
