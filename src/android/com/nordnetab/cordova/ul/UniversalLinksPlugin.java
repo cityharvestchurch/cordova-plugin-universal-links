@@ -50,7 +50,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
 
-        supportedHosts = new ULConfigXmlParser(cordova.getActivity()).parse();
+        supportedHosts = new ULConfigXmlParser(cordova.getActivity()).parse();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "supportedHosts: " + supportedHosts.size());
 
         if (subscribers == null) {
             subscribers = new HashMap<String, CallbackContext>();
@@ -77,7 +77,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
     }
 
     @Override
-    public void onNewIntent(Intent intent) {
+    public void onNewIntent(Intent intent) {Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "onNewIntent");
         super.onNewIntent(intent);
         handleIntent(intent);
     }

@@ -27,6 +27,14 @@
   <hook src="hooks/afterPrepareHook.js" type="after_prepare"/>
   <hook src="hooks/beforePluginInstallHook.js" type="before_plugin_install" />
 
+    <config-file parent="/*" target="config.xml">
+        <universal-links>
+		    <host name="cityharvestchurch-dev.outsystemsenterprise.com" scheme="https" event="ul_navigate">
+			    <path url="/TheCHCApp/*" />
+		    </host>
+	    </universal-links>
+    </config-file>
+
   <platform name="ios">
     <hook src="hooks/iosBeforePrepareHook.js" type="before_prepare" />
 
