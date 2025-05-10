@@ -78,6 +78,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
     @Override
     public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
         handleIntent(intent);
     }
 
@@ -240,7 +241,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
         Intent intent = cordova.getActivity().getIntent();
 
-        String action = intent.getAction();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Handle Intent Action: " + action);
+        String action = intent.getAction();Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Get Intent Action: " + action);
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Before uri");
         Log.d("com.outsystemsenterprise.cityharvestchurchdev.TheCHCApp", "Action View: " + Intent.ACTION_VIEW);
 
