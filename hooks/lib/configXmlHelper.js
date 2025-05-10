@@ -102,7 +102,7 @@ function getCordovaConfigParser(configFilePath) {
  */
 function getConfigXmlFilePath() {
   //return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
-  return path.join(projectRoot, CONFIG_FILE_NAME);
+  return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
 }
 
 /**
