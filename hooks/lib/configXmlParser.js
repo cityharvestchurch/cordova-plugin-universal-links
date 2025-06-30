@@ -41,7 +41,7 @@ function readPreferences(cordovaContext) {
   var hosts = constructHostsList(xmlPreferences);
 
   // read ios team ID
-  var iosTeamId = getTeamIdPreference(xmlPreferences);
+  var iosTeamId = getTeamIdPreference(xmlPreferences);console.log("iOSTeamID:" + iosTeamId);
 
   return {
     'hosts': hosts,
