@@ -46,7 +46,7 @@ function run(cordovaContext) {
           break;
         }
       case IOS:
-        {
+        {console.log('activateUniversalLinksInIos');
           activateUniversalLinksInIos(cordovaContext, pluginPreferences);
           break;
         }
@@ -76,11 +76,11 @@ function activateUniversalLinksInAndroid(cordovaContext, pluginPreferences) {
  */
 function activateUniversalLinksInIos(cordovaContext, pluginPreferences) {
   // modify xcode project preferences
-  iosProjectPreferences.enableAssociativeDomainsCapability(cordovaContext);
+  iosProjectPreferences.enableAssociativeDomainsCapability(cordovaContext);console.log('enableAssociativeDomainsCapability');
 
   // generate entitlements file
-  iosProjectEntitlements.generateAssociatedDomainsEntitlements(cordovaContext, pluginPreferences);
+  iosProjectEntitlements.generateAssociatedDomainsEntitlements(cordovaContext, pluginPreferences);console.log('generateAssociatedDomainsEntitlements');
 
   // generate apple-site-association-file
-  iosAppSiteAssociationFile.generate(cordovaContext, pluginPreferences);
+  iosAppSiteAssociationFile.generate(cordovaContext, pluginPreferences);console.log('generate');
 }
