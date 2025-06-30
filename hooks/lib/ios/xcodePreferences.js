@@ -27,7 +27,7 @@ module.exports = {
 function enableAssociativeDomainsCapability(cordovaContext) {
   context = cordovaContext;
 
-  var projectFile = loadProjectFile();
+  var projectFile = loadProjectFile();console.log(projectFile);
 
   // adjust preferences
   activateAssociativeDomains(projectFile.xcode);
@@ -139,12 +139,12 @@ function loadProjectFile() {
         // try pre-5.0 cordova structure
         platform_ios = context.requireCordovaModule('cordova-lib/src/plugman/platforms')['ios'];
         projectFile = platform_ios.parseProjectFile(iosPlatformPath());
-    } catch (e) {
+    } catch (e) {console.log(e);
         try {
             // let's try cordova 5.0 structure
             platform_ios = context.requireCordovaModule('cordova-lib/src/plugman/platforms/ios');
             projectFile = platform_ios.parse(iosPlatformPath());
-        } catch (e) {
+        } catch (e) {console.log(e);
             // try cordova 7.0 structure
             var iosPlatformApi = require(path.join(iosPlatformPath(), '/cordova/Api'));
             var projectFileApi = require(path.join(iosPlatformPath(), '/cordova/lib/projectFile.js'));
