@@ -122,7 +122,8 @@ function getCordovaConfigParser(configFilePath) {
  */
 function getConfigXmlFilePath() {
   //return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
-  return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
+  //return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
+  return path.join(projectRoot, CONFIG_FILE_NAME);
 }
 
 /**
@@ -135,7 +136,7 @@ function getUniversalLinksXmlFilePath() {
 /**
  * Get project name from config.xml
  */
-function getProjectName() {
+function getProjectName() {console.log(getConfigXmlFilePath());
   var configFilePath = getConfigXmlFilePath();console.log(xmlHelper.readXmlAsJson(configFilePath));
   var config = getCordovaConfigParser(configFilePath);
 
