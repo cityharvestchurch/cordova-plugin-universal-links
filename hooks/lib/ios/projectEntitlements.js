@@ -64,7 +64,7 @@ function saveContentToEntitlementsFile(content) {
  * @return {String} entitlements file content
  */
 function getEntitlementsFileContent() {
-  var pathToFile = pathToEntitlementsFile();
+  var pathToFile = pathToEntitlementsFile();console.log(pathToFile);
   var content;
 
   try {
