@@ -149,7 +149,7 @@ function loadProjectFile() {
             try{
                 var iosPlatformApi = require(path.join(iosPlatformPath(), '/cordova/Api'));console.log(iosPlatformApi)
                 //var projectFileApi = require(path.join(iosPlatformPath(), '/cordova/lib/projectFile.js'));
-                var parse = require(path.join(iosPlatformPath(), '/cordova/parse'));
+                var parse = require(path.join(iosPlatformPath(), '/cordova/parseProjectFile'));
                 var locations = (new iosPlatformApi()).locations;
                 //projectFile = projectFileApi.parse(locations);
                 projectFile = parse(locations);console.log(projectFile);
