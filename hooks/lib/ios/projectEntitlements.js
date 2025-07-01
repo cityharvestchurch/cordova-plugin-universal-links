@@ -29,7 +29,7 @@ module.exports = {
  * @param {Object} cordovaContext - cordova context object
  * @param {Object} pluginPreferences - plugin preferences from config.xml; already parsed
  */
-function generateEntitlements(cordovaContext, pluginPreferences) {
+function generateEntitlements(cordovaContext, pluginPreferences) {console.log('generateEntitlements');
   context = cordovaContext;
 
   var currentEntitlements = getEntitlementsFileContent();console.log(currentEntitlements);
