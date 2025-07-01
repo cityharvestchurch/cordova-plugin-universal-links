@@ -18,12 +18,12 @@ module.exports = function(ctx) {
  * @param {Object} ctx - cordova context object
  */
 function run(ctx) {
-  var projectRoot = ctx.opts.projectRoot;
-  var iosProjectFilePath = path.join(projectRoot, 'platforms', 'ios');
-  var configXmlHelper = new ConfigXmlHelper(ctx);
-  var newProjectName = configXmlHelper.getProjectName();
+  var projectRoot = ctx.opts.projectRoot;console.log('Project Root: ' + projectRoot);
+  var iosProjectFilePath = path.join(projectRoot, 'platforms', 'ios');console.log('iosProjectFilePath: ' + iosProjectFilePath);
+  var configXmlHelper = new ConfigXmlHelper(ctx);console.log('configXmlHelper: ' + configXmlHelper);
+  var newProjectName = configXmlHelper.getProjectName();console.log('newProjectName: ' + newProjectName);
 
-  var oldProjectName = getOldProjectName(iosProjectFilePath);
+  var oldProjectName = getOldProjectName(iosProjectFilePath);console.log('newProjectName: ' + oldProjectName);
 
   // if name has not changed - do nothing
   if (oldProjectName.length && oldProjectName === newProjectName) {
