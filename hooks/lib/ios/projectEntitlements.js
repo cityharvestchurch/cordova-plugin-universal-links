@@ -32,8 +32,8 @@ module.exports = {
 function generateEntitlements(cordovaContext, pluginPreferences) {
   context = cordovaContext;
 
-  var currentEntitlements = getEntitlementsFileContent();
-  var newEntitlements = injectPreferences(currentEntitlements, pluginPreferences);
+  var currentEntitlements = getEntitlementsFileContent();console.log(currentEntitlements);
+  var newEntitlements = injectPreferences(currentEntitlements, pluginPreferences);console.log(newEntitlements);
 
   saveContentToEntitlementsFile(newEntitlements);
 }
@@ -142,7 +142,7 @@ function domainsListEntryForHost(host) {
  */
 function pathToEntitlementsFile() {
   if (entitlementsFilePath === undefined) {
-    entitlementsFilePath = path.join(getProjectRoot(), 'platforms', 'ios', getProjectName(), 'Resources', getProjectName() + '.entitlements');
+    entitlementsFilePath = path.join(getProjectRoot(), 'platforms', 'ios', getProjectName(), 'Resources', getProjectName() + '.entitlements');console.log(entitlementsFilePath);
   }
 
   return entitlementsFilePath;
