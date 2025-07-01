@@ -5,8 +5,8 @@ var path = require('path');
 var xmlHelper = require('./xmlHelper.js');
 var ANDROID = 'android';
 var IOS = 'ios';
-// var CONFIG_FILE_NAME = 'config.xml';
-var CONFIG_FILE_NAME = 'universal-links.xml';
+var CONFIG_FILE_NAME = 'config.xml';
+var UNIVERSAL_LINKS_FILE_NAME = 'universal-links.xml';
 var context;
 var projectRoot;
 
@@ -30,7 +30,7 @@ function ConfigXmlHelper(cordovaContext) {
  * @return {Object} JSON object with data from config.xml
  */
 ConfigXmlHelper.prototype.read = function() {
-  var filePath = getConfigXmlFilePath();
+  var filePath = getUniversalLinksXmlFilePath();
 
   return xmlHelper.readXmlAsJson(filePath);
 }
@@ -102,8 +102,15 @@ function getCordovaConfigParser(configFilePath) {
  * Get absolute path to the config.xml.
  */
 function getConfigXmlFilePath() {
-  return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
-  //return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
+  //return path.join(projectRoot, 'www', CONFIG_FILE_NAME);
+  return path.join(projectRoot, 'res', 'xml', CONFIG_FILE_NAME);
+}
+
+/**
+ * Get absolute path to the universal-links.xml.
+ */
+function getUniversalLinksXmlFilePath() {
+  return path.join(projectRoot, 'www', UNIVERSAL_LINKS_FILE_NAME);
 }
 
 /**
