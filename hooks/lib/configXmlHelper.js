@@ -84,14 +84,14 @@ ConfigXmlHelper.prototype.getProjectName = function() {
  * @param {String} configFilePath absolute path to the config.xml file
  * @return {Object}
  */
-function getCordovaConfigParser(configFilePath) {
+function getCordovaConfigParser(configFilePath) {console.log('configFilePath: ' + configFilePath);
   var ConfigParser;
-
+    console.log('getting config parser');
   // If we are running Cordova 5.4 or abova - use parser from cordova-common.
   // Otherwise - from cordova-lib.
   try {
     ConfigParser = context.requireCordovaModule('cordova-common/src/ConfigParser/ConfigParser');
-  } catch (e) {console.log('1');console.log(e)
+  } catch (e) {console.log('1');console.log(e);
     try{
         ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser')
     }
