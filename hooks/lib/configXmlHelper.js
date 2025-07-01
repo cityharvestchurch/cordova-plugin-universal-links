@@ -105,7 +105,16 @@ function getCordovaConfigParser(configFilePath) {console.log('configFilePath: ' 
     }
   }
 
-  return new ConfigParser(configFilePath);
+  var cordovaConfigParser;
+
+  try {
+    cordovaConfigParser = new ConfigParser(configFilePath);
+  }
+  catch(e){
+    console.log(e);
+  }
+
+  return cordovaConfigParser;
 }
 
 /**
