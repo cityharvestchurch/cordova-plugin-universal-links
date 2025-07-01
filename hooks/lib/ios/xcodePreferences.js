@@ -149,10 +149,28 @@ function loadProjectFile() {
             try{
                 var iosPlatformApi = require(path.join(iosPlatformPath(), '/cordova/Api'));console.log(iosPlatformApi)
                 //var projectFileApi = require(path.join(iosPlatformPath(), '/cordova/lib/projectFile.js'));
-                var parse = require(path.join(iosPlatformPath(), '/cordova/parseProjectFile'));
+                //var parse = require(path.join(iosPlatformPath(), '/cordova/parseProjectFile'));
                 var locations = (new iosPlatformApi()).locations;
                 //projectFile = projectFileApi.parse(locations);
-                projectFile = parse(locations);console.log(projectFile);
+                //projectFile = parse(locations);console.log(projectFile);
+
+                var projectFileApi;
+
+                try {
+                    projectFileApi = context.requireCordovaModule('cordova-ios/lib/projectFile');
+                } catch (e) {
+                    // Fallback for older cordova-ios versions or different internal paths
+                    // This is where the error you saw might originate if the path is not what's expected by the hook
+                    console.error("Could not find projectFile module, attempting fallback paths...");
+                    try {
+                        projectFileApi = context.requireCordovaModule('../cordova-ios/lib/projectFile'); // Example fallback
+                    } catch (e2) {
+                        console.error("Failed to load projectFile module using any known path. This hook may not function correctly.");
+                        return; // Exit if critical module not found
+                    }
+                }
+
+                projectFile = projectFileApi.parse(locations);console.log(projectFile);
             } catch(e){
                 console.log(e);
             }
