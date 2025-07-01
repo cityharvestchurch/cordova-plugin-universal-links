@@ -91,11 +91,11 @@ function getCordovaConfigParser(configFilePath) {
   // Otherwise - from cordova-lib.
   try {
     ConfigParser = context.requireCordovaModule('cordova-common/src/ConfigParser/ConfigParser');
-  } catch (e) {
+  } catch (e) {console.log('1');console.log(e)
     try{
         ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser')
     }
-    catch(e){
+    catch(e){console.log('2');console.log(e);
         try{
             ConfigParser = require('cordova-common');console.log('ConfigParse: ' + ConfigParser);
         }
@@ -127,7 +127,7 @@ function getUniversalLinksXmlFilePath() {
  * Get project name from config.xml
  */
 function getProjectName() {
-  var configFilePath = getConfigXmlFilePath();
+  var configFilePath = getConfigXmlFilePath();console.log('configFilePath: ' + configFilePath)
   var config = getCordovaConfigParser(configFilePath);
 
   return config.name();
