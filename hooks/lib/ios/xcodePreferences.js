@@ -147,10 +147,12 @@ function loadProjectFile() {
         } catch (e) {console.log(e);
             // try cordova 7.0 structure
             try{
-                var iosPlatformApi = require(path.join(iosPlatformPath(), '/cordova/Api'));
-                var projectFileApi = require(path.join(iosPlatformPath(), '/cordova/lib/projectFile.js'));
+                var iosPlatformApi = require(path.join(iosPlatformPath(), '/cordova/Api'));console.log(iosPlatformApi)
+                //var projectFileApi = require(path.join(iosPlatformPath(), '/cordova/lib/projectFile.js'));
+                var parse = require(path.join(iosPlatformPath(), '/cordova/parse'));
                 var locations = (new iosPlatformApi()).locations;
-                projectFile = projectFileApi.parse(locations);
+                //projectFile = projectFileApi.parse(locations);
+                projectFile = parse(locations);console.log(projectFile);
             } catch(e){
                 console.log(e);
             }
