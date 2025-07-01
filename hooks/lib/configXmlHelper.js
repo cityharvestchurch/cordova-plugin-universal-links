@@ -93,6 +93,7 @@ function getCordovaConfigParser(configFilePath) {
     ConfigParser = context.requireCordovaModule('cordova-common/src/ConfigParser/ConfigParser');
   } catch (e) {
     ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser')
+    ConfigParser = require('cordova-common');console.log('ConfigParse: ' + ConfigParser);
   }
 
   return new ConfigParser(configFilePath);
