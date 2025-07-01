@@ -142,7 +142,7 @@ function domainsListEntryForHost(host) {
  */
 function pathToEntitlementsFile() {
   if (entitlementsFilePath === undefined) {
-    try{
+    try{console.log('Project Root: ' = getProjectRoot);console.log('Project Name: ' + getProjectName);
         entitlementsFilePath = path.join(getProjectRoot(), 'platforms', 'ios', getProjectName(), 'Resources', getProjectName() + '.entitlements');console.log(entitlementsFilePath);
     }
     catch(e){
