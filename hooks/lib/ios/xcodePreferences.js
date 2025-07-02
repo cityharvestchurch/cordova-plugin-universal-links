@@ -58,7 +58,7 @@ function activateAssociativeDomains(xcodeProject) {
   var deploymentTargetIsUpdated;
 
   for (config in configurations) {
-    buildSettings = configurations[config].buildSettings;console.log('buildSettings: ' + buildSettings);
+    buildSettings = configurations[config].buildSettings;console.log(buildSettings);
     buildSettings['CODE_SIGN_ENTITLEMENTS'] = '"' + entitlementsFilePath + '"';
 
     // if deployment target is less then the required one - increase it
