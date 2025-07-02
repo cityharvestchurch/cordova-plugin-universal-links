@@ -9,7 +9,7 @@ Which is:
 var path = require('path');
 var compare = require('node-version-compare');
 var ConfigXmlHelper = require('../configXmlHelper.js');
-var IOS_DEPLOYMENT_TARGET = '18.0';
+var IOS_DEPLOYMENT_TARGET = '9.0';
 var COMMENT_KEY = /_comment$/;
 var context;
 
@@ -58,7 +58,7 @@ function activateAssociativeDomains(xcodeProject) {
   var deploymentTargetIsUpdated;
 
   for (config in configurations) {
-    buildSettings = configurations[config].buildSettings;
+    buildSettings = configurations[config].buildSettings;console.log('buildSettings: ' + buildSettings);
     buildSettings['CODE_SIGN_ENTITLEMENTS'] = '"' + entitlementsFilePath + '"';
 
     // if deployment target is less then the required one - increase it
