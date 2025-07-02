@@ -20,8 +20,8 @@ module.exports = function(ctx) {
 function run(ctx) {
   var projectRoot = ctx.opts.projectRoot;console.log('Project Root: ' + projectRoot);
   var iosProjectFilePath = path.join(projectRoot, 'platforms', 'ios');console.log('iosProjectFilePath: ' + iosProjectFilePath);
-  var configXmlHelper = new ConfigXmlHelper(ctx);console.log('configXmlHelper: ' + configXmlHelper);
-  var newProjectName = configXmlHelper.getProjectName();console.log('newProjectName: ' + newProjectName);
+  var configXmlHelper = new ConfigXmlHelper(ctx);
+  var newProjectName = configXmlHelper.getProjectName();
 
   var oldProjectName = getOldProjectName(iosProjectFilePath);console.log('newProjectName: ' + oldProjectName);
 

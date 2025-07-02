@@ -220,7 +220,9 @@ function parseProjectFile (locations) {
     const xcodeproj = xcode.project(pbxPath);
     xcodeproj.parseSync();
 
-    const config_file = path.join(project_dir, 'App', 'config.xml');
+    //const config_file = path.join(project_dir, 'App', 'config.xml');
+    var configXmlHelper = new ConfigXmlHelper(context);
+    const config_file = configXmlHelper.getConfigXmlFilePath();
 
     if (!fs.existsSync(config_file)) {
         throw new CordovaError('Could not find config.xml file.');
