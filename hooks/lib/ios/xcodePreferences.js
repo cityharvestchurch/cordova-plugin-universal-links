@@ -206,7 +206,7 @@ function pathToEntitlementsFile() {
 // endregion
 
 const cachedProjectFiles = {};
-//const xcode = require('xcode');
+const xcode = require('xcode');
 
 function parseProjectFile (locations) {
     const project_dir = locations.root;
