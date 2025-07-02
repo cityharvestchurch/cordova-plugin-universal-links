@@ -154,26 +154,7 @@ function loadProjectFile() {
                 //projectFile = projectFileApi.parse(locations);
                 //projectFile = parse(locations);console.log(projectFile);
 
-                var projectFileApi;
-
-                try {
-                    //projectFileApi = context.requireCordovaModule('cordova-ios/lib/projectFile');
-                    projectFileApi = context.requireCordovaModule('cordova-ios/lib/projects/projectFile');
-                } catch (e) {
-                    // Fallback for older cordova-ios versions or different internal paths
-                    // This is where the error you saw might originate if the path is not what's expected by the hook
-                    console.error("Could not find projectFile module, attempting fallback paths...");
-                    try {
-                        projectFileApi = context.requireCordovaModule('../cordova-ios/lib/projectFile'); // Example fallback
-                    } catch (e2) {
-                        console.error("Failed to load projectFile module using any known path. This hook may not function correctly.");
-                        return; // Exit if critical module not found
-                    }
-                }
-
-                console.log(projectFileApi);
-
-                projectFile = projectFileApi.parse(locations);console.log(projectFile);
+                projectFile = parseProjectFile(locations);console.log(projectFile);
             } catch(e){
                 console.log(e);
             }
@@ -223,3 +204,65 @@ function pathToEntitlementsFile() {
 }
 
 // endregion
+
+const cachedProjectFiles = {};
+//const xcode = require('xcode');
+
+function parseProjectFile (locations) {
+    const project_dir = locations.root;
+    const pbxPath = locations.pbxproj;
+
+    if (cachedProjectFiles[project_dir]) {
+        return cachedProjectFiles[project_dir];
+    }
+
+    const xcodeproj = xcode.project(pbxPath);
+    xcodeproj.parseSync();
+
+    const config_file = path.join(project_dir, 'App', 'config.xml');
+
+    if (!fs.existsSync(config_file)) {
+        throw new CordovaError('Could not find config.xml file.');
+    }
+
+    const frameworks_file = path.join(project_dir, 'frameworks.json');
+    let frameworks = {};
+    try {
+        frameworks = require(frameworks_file);
+    } catch (e) { }
+
+    const xcode_dir = path.join(project_dir, 'App');
+    const pluginsDir = path.resolve(xcode_dir, 'Plugins');
+    const resourcesDir = path.resolve(xcode_dir, 'Resources');
+
+    cachedProjectFiles[project_dir] = {
+        plugins_dir: pluginsDir,
+        resources_dir: resourcesDir,
+        xcode: xcodeproj,
+        xcode_path: xcode_dir,
+        pbx: pbxPath,
+        projectDir: project_dir,
+        platformWww: path.join(project_dir, 'platform_www'),
+        www: path.join(project_dir, 'www'),
+        write: function () {
+            fs.writeFileSync(pbxPath, xcodeproj.writeSync({ omitEmptyValues: true }));
+            if (Object.keys(this.frameworks).length === 0) {
+                // If there is no framework references remain in the project, just remove this file
+                fs.rmSync(frameworks_file, { force: true });
+                return;
+            }
+            fs.writeFileSync(frameworks_file, JSON.stringify(this.frameworks, null, 4));
+        },
+        getPackageName: function () {
+            return xcodeproj.getBuildProperty('PRODUCT_BUNDLE_IDENTIFIER', undefined, 'App').replace(/^"/, '').replace(/"$/, '');
+        },
+        getInstaller: function (name) {
+            return pluginHandlers.getInstaller(name);
+        },
+        getUninstaller: function (name) {
+            return pluginHandlers.getUninstaller(name);
+        },
+        frameworks
+    };
+    return cachedProjectFiles[project_dir];
+}
