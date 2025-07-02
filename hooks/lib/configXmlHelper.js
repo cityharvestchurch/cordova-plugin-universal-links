@@ -74,6 +74,10 @@ ConfigXmlHelper.prototype.getProjectName = function() {
   return getProjectName();
 }
 
+ConfigXmlHelper.prototype.getConfigXmlFilePath = function(){
+    return getConfigXmlFilePath();
+}
+
 // endregion
 
 // region Private API
