@@ -157,7 +157,7 @@ function loadProjectFile() {
                 var projectFileApi;
 
                 try {
-                    projectFileApi = context.requireCordovaModule('cordova-ios/lib/projectFile');
+                    projectFileApi = context.requireCordovaModule('cordova-ios/lib/parse');
                 } catch (e) {
                     // Fallback for older cordova-ios versions or different internal paths
                     // This is where the error you saw might originate if the path is not what's expected by the hook
@@ -169,6 +169,8 @@ function loadProjectFile() {
                         return; // Exit if critical module not found
                     }
                 }
+
+                console.log('projectFileApi: ' + projectFileApi);
 
                 projectFile = projectFileApi.parse(locations);console.log(projectFile);
             } catch(e){
