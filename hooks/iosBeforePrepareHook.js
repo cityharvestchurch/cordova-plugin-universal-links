@@ -35,15 +35,15 @@ function run(ctx) {
   // if it does - rename it
 
   // CHC edit. There is no entitlements file.
-//   var oldEntitlementsFilePath = path.join(iosProjectFilePath, oldProjectName, 'Resources', oldProjectName + '.entitlements');
-//   var newEntitlementsFilePath = path.join(iosProjectFilePath, oldProjectName, 'Resources', newProjectName + '.entitlements');
+  var oldEntitlementsFilePath = path.join(iosProjectFilePath, oldProjectName, 'Resources', oldProjectName + '.entitlements');
+  var newEntitlementsFilePath = path.join(iosProjectFilePath, oldProjectName, 'Resources', newProjectName + '.entitlements');
 
-//   try {
-//     fs.renameSync(oldEntitlementsFilePath, newEntitlementsFilePath);
-//   } catch (err) {
-//     console.warn('Failed to rename .entitlements file.');
-//     console.warn(err);
-//   }
+  try {
+    fs.renameSync(oldEntitlementsFilePath, newEntitlementsFilePath);
+  } catch (err) {
+    console.warn('Failed to rename .entitlements file.');
+    console.warn(err);
+  }
 }
 
 // region Private API

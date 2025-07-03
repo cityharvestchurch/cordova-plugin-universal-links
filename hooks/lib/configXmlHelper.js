@@ -140,8 +140,8 @@ function getUniversalLinksXmlFilePath() {
 /**
  * Get project name from config.xml
  */
-function getProjectName() {console.log(getConfigXmlFilePath());
-  var configFilePath = getConfigXmlFilePath();console.log(xmlHelper.readXmlAsJson(configFilePath));
+function getProjectName() {
+  var configFilePath = getConfigXmlFilePath();
   var config = getCordovaConfigParser(configFilePath);
 
   return config.name();
