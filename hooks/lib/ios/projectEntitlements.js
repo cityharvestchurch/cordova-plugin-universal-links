@@ -29,11 +29,11 @@ module.exports = {
  * @param {Object} cordovaContext - cordova context object
  * @param {Object} pluginPreferences - plugin preferences from config.xml; already parsed
  */
-function generateEntitlements(cordovaContext, pluginPreferences) {console.log('generateEntitlements');
+function generateEntitlements(cordovaContext, pluginPreferences) {
   context = cordovaContext;
 
-  var currentEntitlements = getEntitlementsFileContent();console.log(currentEntitlements);
-  var newEntitlements = injectPreferences(currentEntitlements, pluginPreferences);console.log(newEntitlements);
+  var currentEntitlements = getEntitlementsFileContent();
+  var newEntitlements = injectPreferences(currentEntitlements, pluginPreferences);
 
   saveContentToEntitlementsFile(newEntitlements);
 }
@@ -47,9 +47,9 @@ function generateEntitlements(cordovaContext, pluginPreferences) {console.log('g
  *
  * @param {Object} content - data to save; JSON object that will be transformed into xml
  */
-function saveContentToEntitlementsFile(content) {
+function saveContentToEntitlementsFile(content) {console.log('saveContentToEntitlementsFile');console.log(content);
   var plistContent = plist.build(content);
-  var filePath = pathToEntitlementsFile();
+  var filePath = pathToEntitlementsFile();console.log('filePath: ' + filePath);
 
   // ensure that file exists
   mkpath.sync(path.dirname(filePath));
@@ -142,8 +142,8 @@ function domainsListEntryForHost(host) {
  */
 function pathToEntitlementsFile() {
   if (entitlementsFilePath === undefined) {
-    try{console.log('Project Root: ' + getProjectRoot());console.log('Project Name: ' + getProjectName());
-        entitlementsFilePath = path.join(getProjectRoot(), 'platforms', 'ios', getProjectName(), 'Resources', getProjectName() + '.entitlements');console.log(entitlementsFilePath);
+    try{
+        entitlementsFilePath = path.join(getProjectRoot(), 'platforms', 'ios', getProjectName(), 'Resources', getProjectName() + '.entitlements');
     }
     catch(e){
         console.log(e);
