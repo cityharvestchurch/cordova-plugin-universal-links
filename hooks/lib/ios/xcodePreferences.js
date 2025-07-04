@@ -27,7 +27,7 @@ module.exports = {
 function enableAssociativeDomainsCapability(cordovaContext) {
   context = cordovaContext;
 
-  var projectFile = loadProjectFile();console.log(projectFile);
+  //var projectFile = loadProjectFile();
 
   // adjust preferences
   activateAssociativeDomains(projectFile.xcode);
@@ -36,7 +36,7 @@ function enableAssociativeDomainsCapability(cordovaContext) {
   addPbxReference(projectFile.xcode);
 
   // save changes
-  projectFile.write();
+  //projectFile.write();
 }
 
 // endregion
