@@ -30,7 +30,7 @@ function enableAssociativeDomainsCapability(cordovaContext) {
   var projectFile = loadProjectFile();
 
   // adjust preferences
-  activateAssociativeDomains(projectFile.xcode);
+  //activateAssociativeDomains(projectFile.xcode);
 
   // add entitlements file to pbxfilereference
   addPbxReference(projectFile.xcode);
