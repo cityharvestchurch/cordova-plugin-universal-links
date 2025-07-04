@@ -27,7 +27,7 @@ module.exports = {
 function enableAssociativeDomainsCapability(cordovaContext) {
   context = cordovaContext;
 
-  //var projectFile = loadProjectFile();
+  var projectFile = loadProjectFile();
 
   // adjust preferences
   activateAssociativeDomains(projectFile.xcode);
