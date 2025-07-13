@@ -39,12 +39,12 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="UniversalLinks">
-                <param name="android-package" value="com.example.cordovaplugin.UniversalLinks"/>
+                <param name="android-package" value="com.thechcapp.cordovaplugin.UniversalLinks"/>
                 <param name="onload" value="true" />
             </feature>
         </config-file>
 
-        <source-file src="src/android/UniversalLinks.java" target-dir="src/com/example/cordovaplugin" />
+        <source-file src="src/android/UniversalLinks.java" target-dir="src/com/thechcapp/cordovaplugin" />
 
         <!-- This intent filter will capture clicks on your domain.
              You will need to replace 'www.your-domain.com' with your actual domain. -->
