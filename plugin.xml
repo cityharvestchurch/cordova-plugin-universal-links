@@ -22,11 +22,17 @@
             </feature>
         </config-file>
 
+        <!-- Main Plugin Files -->
         <header-file src="src/ios/UniversalLinks.h" />
         <source-file src="src/ios/UniversalLinks.m" />
 
+        <!-- AppDelegate Category for handling universal links -->
+        <header-file src="src/ios/AppDelegate+UniversalLinks.h" />
+        <source-file src="src/ios/AppDelegate+UniversalLinks.m" />
+
         <!-- This preference is used to specify the associated domains for your app.
-             You will need to replace 'www.your-domain.com' with your actual domain. -->
+             You will need to replace 'www.your-domain.com' with your actual domain.
+             Path restrictions for iOS are configured on your server in the apple-app-site-association file. -->
         <preference name="IOS_ASSOCIATED_DOMAINS" default="cityharvestchurch-dev.outsystemsenterprise.com" />
         <config-file target="*-Info.plist" parent="com.apple.developer.associated-domains">
             <array>
@@ -44,16 +50,22 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/UniversalLinks.java" target-dir="src/com/thechcapp/cordovaplugin" />
+        <source-file src="src/android/UniversalLinks.java" target-dir="src/com/example/cordovaplugin" />
 
         <!-- This intent filter will capture clicks on your domain.
-             You will need to replace 'www.your-domain.com' with your actual domain. -->
+             You will need to replace 'www.your-domain.com' with your actual domain.
+             The 'android:pathPrefix' attribute restricts the links to a specific path.
+             You can also use 'android:pathPattern' for more complex matching. -->
         <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="cityharvestchurch-dev.outsystemsenterprise.com" android:pathPrefix="/TheCHCApp/" />
+                <!-- Example: Only handles links under the /products/ path -->
+                <data android:scheme="https"
+                      android:host="cityharvestchurch-dev.outsystemsenterprise.com" android:pathPrefix="/TheCHCApp/"
+                      android:pathPrefix="/TheCHCApp/" />
+                <!-- To handle all paths, remove the android:pathPrefix attribute -->
             </intent-filter>
         </config-file>
     </platform>
