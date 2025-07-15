@@ -50,7 +50,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/UniversalLinks.java" target-dir="src/com/example/cordovaplugin" />
+        <source-file src="src/android/UniversalLinks.java" target-dir="src/com/thechcapp/cordovaplugin" />
 
         <!-- This intent filter will capture clicks on your domain.
              You will need to replace 'www.your-domain.com' with your actual domain.

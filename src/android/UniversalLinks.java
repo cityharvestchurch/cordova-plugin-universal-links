@@ -1,4 +1,4 @@
-package com.example.cordovaplugin;
+package com.thechcapp.cordovaplugin;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
