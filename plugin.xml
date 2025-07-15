@@ -3,7 +3,7 @@
         id="cordova-plugin-universal-links"
         version="1.0.0">
 
-    <name>Universal Links Demo</name>
+    <name>Universal Links</name>
     <description>A Cordova plugin to handle Universal Links on iOS and App Links on Android.</description>
     <license>Apache 2.0</license>
     <keywords>cordova,universal-links,app-links,deep-linking</keywords>

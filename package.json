@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-universal-links",
+  "version": "1.0.0",
+  "description": "A Cordova plugin to handle Universal Links on iOS and App Links on Android.",
+  "cordova": {
+    "id": "cordova-plugin-universal-links",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "universal-links",
+    "app-links",
+    "deep-linking",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache-2.0"
+}
